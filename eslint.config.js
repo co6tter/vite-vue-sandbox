@@ -13,7 +13,7 @@ export default [
   ...pluginVue.configs["flat/recommended"],
   prettier,
   {
-    files: ["**/*.vue"],
+    files: ["**/*.{ts,vue}"],
     languageOptions: { parserOptions: { parser: tseslint.parser } },
   },
 ];
