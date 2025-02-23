@@ -1,4 +1,4 @@
-# vite-vue
+# vite-vue-sandbox
 
 ## Tech Stack
 
@@ -6,9 +6,13 @@
 - Vue 3
 - TypeScript
 - TailwindCSS
+- headlessUI
 - ESLint
+- Prettier
 - Husky
 - lint-staged
+- commitlint
+- Vitest
 
 ## Note
 
