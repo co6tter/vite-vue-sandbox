@@ -2,7 +2,7 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginVue from "eslint-plugin-vue";
-import prettier from "@vue/eslint-config-prettier";
+import eslintConfigPrettier from "@vue/eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -11,7 +11,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs["flat/recommended"],
-  prettier,
+  eslintConfigPrettier,
   {
     files: ["**/*.{ts,vue}"],
     languageOptions: { parserOptions: { parser: tseslint.parser } },
