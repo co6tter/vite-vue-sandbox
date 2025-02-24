@@ -2,6 +2,7 @@
 import HeadlessUIMenu from "@/components/HeadlessUIMenu.vue";
 import HeadlessUIListbox from "@/components/HeadlessUIListbox.vue";
 import HeadlessUICombobox from "./components/HeadlessUICombobox.vue";
+import HeadlessUISwitch from "./components/HeadlessUISwitch.vue";
 </script>
 
 <template>
@@ -14,6 +15,9 @@ import HeadlessUICombobox from "./components/HeadlessUICombobox.vue";
     </div>
     <div class="min-w-80 min-h-80">
       <HeadlessUICombobox />
+    </div>
+    <div class="min-w-80 min-h-80">
+      <HeadlessUISwitch />
     </div>
   </div>
 </template>
