@@ -5,6 +5,7 @@ import HeadlessUICombobox from "./components/HeadlessUICombobox.vue";
 import HeadlessUISwitch from "./components/HeadlessUISwitch.vue";
 import HeadlessUIDisclosure from "./components/HeadlessUIDisclosure.vue";
 import HeadlessUIDialog from "./components/HeadlessUIDialog.vue";
+import HeadlessUIPopover from "./components/HeadlessUIPopover.vue";
 </script>
 
 <template>
@@ -26,6 +27,9 @@ import HeadlessUIDialog from "./components/HeadlessUIDialog.vue";
     </div>
     <div class="min-w-80 min-h-80">
       <HeadlessUIDialog />
+    </div>
+    <div class="min-w-3xl min-h-80 mx-auto">
+      <HeadlessUIPopover />
     </div>
   </div>
 </template>
