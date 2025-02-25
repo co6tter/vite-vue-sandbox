@@ -1,8 +1,9 @@
-import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import pluginVue from "eslint-plugin-vue";
 import eslintConfigPrettier from "@vue/eslint-config-prettier";
+import importPlugin from "eslint-plugin-import";
+import pluginVue from "eslint-plugin-vue";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -11,7 +12,32 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs["flat/recommended"],
+  importPlugin.flatConfigs.recommended,
   eslintConfigPrettier,
+  {
+    rules: {
+      "no-console": "off",
+      "no-debugger": "off",
+      "import/named": "off",
+      "import/no-unresolved": "off",
+      "sort-imports": [
+        "error",
+        {
+          ignoreDeclarationSort: true,
+        },
+      ],
+      "import/order": [
+        "error",
+        {
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+          "newlines-between": "always",
+        },
+      ],
+    },
+  },
   {
     files: ["**/*.{ts,vue}"],
     languageOptions: { parserOptions: { parser: tseslint.parser } },
