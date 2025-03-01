@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4">
+  <div>
     <div class="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
       <Disclosure v-slot="{ open }">
         <DisclosureButton
