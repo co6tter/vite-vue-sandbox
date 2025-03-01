@@ -72,16 +72,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
 import {
   Combobox,
-  ComboboxInput,
   ComboboxButton,
-  ComboboxOptions,
+  ComboboxInput,
   ComboboxOption,
+  ComboboxOptions,
   TransitionRoot,
 } from "@headlessui/vue";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/vue/20/solid";
+import { computed, ref } from "vue";
 
 interface Person {
   id: number;
