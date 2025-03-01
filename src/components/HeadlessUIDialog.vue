@@ -69,14 +69,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import {
-  TransitionRoot,
-  TransitionChild,
   Dialog,
   DialogPanel,
   DialogTitle,
+  TransitionChild,
+  TransitionRoot,
 } from "@headlessui/vue";
+import { ref } from "vue";
 
 const isOpen = ref(false);
 

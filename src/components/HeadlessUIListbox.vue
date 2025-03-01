@@ -60,14 +60,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import {
   Listbox,
   ListboxButton,
-  ListboxOptions,
   ListboxOption,
+  ListboxOptions,
 } from "@headlessui/vue";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/vue/20/solid";
+import { ref } from "vue";
 
 const people = [
   { name: "Wade Cooper" },

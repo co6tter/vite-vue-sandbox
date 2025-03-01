@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import HeadlessUIMenu from "@/components/HeadlessUIMenu.vue";
-import HeadlessUIListbox from "@/components/HeadlessUIListbox.vue";
 import HeadlessUICombobox from "./components/HeadlessUICombobox.vue";
-import HeadlessUISwitch from "./components/HeadlessUISwitch.vue";
-import HeadlessUIDisclosure from "./components/HeadlessUIDisclosure.vue";
 import HeadlessUIDialog from "./components/HeadlessUIDialog.vue";
+import HeadlessUIDisclosure from "./components/HeadlessUIDisclosure.vue";
+import HeadlessUIListbox from "./components/HeadlessUIListbox.vue";
+import HeadlessUIMenu from "./components/HeadlessUIMenu.vue";
 import HeadlessUIPopover from "./components/HeadlessUIPopover.vue";
+import HeadlessUIRadioGroup from "./components/HeadlessUIRadioGroup.vue";
+import HeadlessUISwitch from "./components/HeadlessUISwitch.vue";
+import HeadlessUITabs from "./components/HeadlessUITabs.vue";
 </script>
 
 <template>
@@ -30,6 +32,12 @@ import HeadlessUIPopover from "./components/HeadlessUIPopover.vue";
     </div>
     <div class="min-w-3xl min-h-80 mx-auto">
       <HeadlessUIPopover />
+    </div>
+    <div class="min-w-80 min-h-80">
+      <HeadlessUIRadioGroup />
+    </div>
+    <div class="min-w-80 min-h-80">
+      <HeadlessUITabs />
     </div>
   </div>
 </template>
