@@ -12,6 +12,7 @@
     "lint:eslint": "eslint 'src/**/*.{js,mjs,ts,vue}'"
   },
   "dependencies": {
+    "@co6tter/vite-lib-app": "1.1.2",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
     "@tailwindcss/vite": "^4.0.13",

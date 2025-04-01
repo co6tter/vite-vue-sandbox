@@ -14,6 +14,12 @@
 - commitlint
 - Vitest
 
+## Usage
+
+```bash
+source .env
+```
+
 ## Note
 
 - sample
