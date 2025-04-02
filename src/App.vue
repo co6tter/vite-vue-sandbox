@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { RedColors } from "@co6tter/vite-lib-app";
+
 import HeadlessUICombobox from "./components/HeadlessUICombobox.vue";
 import HeadlessUIDialog from "./components/HeadlessUIDialog.vue";
 import HeadlessUIDisclosure from "./components/HeadlessUIDisclosure.vue";
@@ -39,6 +41,10 @@ import HeadlessUITabs from "./components/HeadlessUITabs.vue";
     <div class="min-w-80 min-h-80">
       <HeadlessUITabs />
     </div>
+  </div>
+
+  <div class="container mx-auto p-8">
+    <RedColors />
   </div>
 </template>
 
