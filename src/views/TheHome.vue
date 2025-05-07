@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, onUnmounted } from "vue";
 
+import { lockResource, releaseResource, sendHeartbeat } from "@/mocks/mockApi";
 import { useFormStore } from "@/stores";
 
 const formStore = useFormStore();
+const resourceId = "the-home-resource";
 
 const fields = computed(() => formStore.fields);
 
@@ -20,6 +22,24 @@ const removeForm = (number: number) => {
 const removeAllForms = () => {
   formStore.removeAllForms();
 };
+
+const HEARTBEAT_INTERVAL = 5000;
+let heartbeatTimeout: ReturnType<typeof setTimeout>;
+
+const startHeartbeat = async () => {
+  await sendHeartbeat(resourceId);
+  heartbeatTimeout = setTimeout(startHeartbeat, HEARTBEAT_INTERVAL);
+};
+
+onMounted(async () => {
+  await lockResource(resourceId);
+  startHeartbeat();
+});
+
+onUnmounted(async () => {
+  clearTimeout(heartbeatTimeout);
+  await releaseResource(resourceId);
+});
 </script>
 
 <template>
