@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-import { DynamicForm } from "@/utils/DynamicForm.ts";
+import { DynamicForm } from "@/utils/DynamicFormV1";
 
 interface FormFields {
   id: number;
@@ -59,7 +59,7 @@ class FormManager extends DynamicForm<FormFields> {
   }
 }
 
-export const useFormStore = defineStore("formStore", {
+export const useFormStore = defineStore("formStoreV1", {
   state: () => ({
     formManager: new FormManager(5),
   }),
