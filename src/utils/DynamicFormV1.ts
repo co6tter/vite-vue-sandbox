@@ -6,7 +6,7 @@ export abstract class DynamicForm<T> {
   ) {}
 
   abstract addFields(): void;
-  abstract removeFields(number?: number): void;
+  abstract removeFields(index?: number): void;
   abstract removeAllFields(): void;
 
   get fields() {
