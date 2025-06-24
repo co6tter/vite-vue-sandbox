@@ -5,14 +5,39 @@ import { computed } from "vue";
 import InputField from "./InputField.vue";
 
 import { useFormStore } from "@/stores/formStoreV2";
+import type { FieldConfig } from "@/utils/DynamicFormGroup";
 
 const store = useFormStore();
 
-const baseField: import("@/utils/DynamicFormGroup").FieldConfig = {
+// const baseField: FieldConfig = {
+//   name: "contact",
+//   subFields: [
+//     {
+//       label: "First Name",
+//       name: "",
+//       fieldName: "fname",
+//       type: "text",
+//       validationName: "fname",
+//       validationType: "string",
+//       validations: [{ type: "required" }, { type: "min", params: [3] }],
+//     },
+//     {
+//       label: "Last Name",
+//       name: "",
+//       fieldName: "lname",
+//       type: "text",
+//       validationName: "lname",
+//       validationType: "string",
+//       validations: [{ type: "required" }],
+//     },
+//   ],
+// };
+
+const createBaseField = (index: number): FieldConfig => ({
   name: "contact",
   subFields: [
     {
-      label: "First Name",
+      label: "First Name" + index,
       name: "",
       fieldName: "fname",
       type: "text",
@@ -30,10 +55,11 @@ const baseField: import("@/utils/DynamicFormGroup").FieldConfig = {
       validations: [{ type: "required" }],
     },
   ],
-};
+});
 
 if (!store.form.fieldLength) {
-  store.init(baseField);
+  // store.init(baseField);
+  store.init(createBaseField);
 }
 
 const schema = computed(() => store.schema);
@@ -53,7 +79,8 @@ const onSubmit = handleSubmit((validated) => {
 }, invalidSubmit);
 
 function add() {
-  store.addField(baseField);
+  // store.addField(baseField);
+  store.addField(createBaseField);
 }
 function remove(idx: number) {
   store.removeField(idx);
@@ -90,7 +117,11 @@ function remove(idx: number) {
       </template>
 
       <div class="flex gap-4">
-        <button class="rounded-lg p-2 bg-pink-600 text-white" @click="add">
+        <button
+          type="button"
+          class="rounded-lg p-2 bg-pink-600 text-white"
+          @click="add"
+        >
           Add Field Group
         </button>
         <button type="submit" class="rounded-lg p-2 bg-emerald-600 text-white">

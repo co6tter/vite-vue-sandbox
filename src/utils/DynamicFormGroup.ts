@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 
 import { DynamicForm } from "./DynamicFormV2";
+// import { makeArrayPathString } from "./helper";
 
 export interface SubFieldConfig {
   label: string;
@@ -24,17 +25,19 @@ export class DynamicFormGroup extends DynamicForm<FieldConfig> {
     super([], min, max);
   }
 
-  addFields(template: FieldConfig): void {
-    if (this._fields.length >= this._maxFields) {
+  addFields(template: FieldConfig | ((index: number) => FieldConfig)): void {
+    if (this.fieldLength >= this._maxFields) {
       return;
     }
 
-    const baseName = template.name;
-    const fieldName = `${baseName}_${nanoid(4)}`;
+    const index = this.fieldLength;
+    const t = typeof template === "function" ? template(index) : template;
+    const baseName = t.name;
 
-    const subFields: SubFieldConfig[] = template.subFields.map((sf) => ({
+    const subFields: SubFieldConfig[] = t.subFields.map((sf) => ({
       ...sf,
-      name: fieldName,
+      // name: makeArrayPathString(baseName, index, sf.fieldName),
+      name: `${baseName}_${sf.fieldName}_${nanoid(4)}`,
     }));
 
     const newField: FieldConfig = {

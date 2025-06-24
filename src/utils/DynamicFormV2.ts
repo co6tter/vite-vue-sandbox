@@ -5,7 +5,7 @@ export abstract class DynamicForm<T> {
     protected _maxFields = 1,
   ) {}
 
-  abstract addFields(template: T): void;
+  abstract addFields(template: T | ((index: number) => T)): void;
   abstract removeFields(index: number): void;
   abstract removeAllFields(): void;
 
