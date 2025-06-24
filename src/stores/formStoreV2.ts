@@ -11,12 +11,12 @@ export const useFormStore = defineStore("formStoreV2", {
     schema: {} as ReturnType<typeof createSchema>,
   }),
   actions: {
-    init(templateField: FieldConfig) {
+    init(templateField: FieldConfig | ((index: number) => FieldConfig)) {
       this.form.addFields(templateField);
       this.updateFormValues();
       this.updateSchema();
     },
-    addField(templateField: FieldConfig) {
+    addField(templateField: FieldConfig | ((index: number) => FieldConfig)) {
       this.form.addFields(templateField);
       this.updateFormValues();
       this.updateSchema();
