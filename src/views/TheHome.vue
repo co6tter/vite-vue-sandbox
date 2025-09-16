@@ -2,6 +2,7 @@
 import { nanoid } from "nanoid";
 import { onMounted, onUnmounted } from "vue";
 
+import VChild from "@/components/VChild.vue";
 import { lockResource, releaseResource, sendHeartbeat } from "@/mocks/mockApi";
 
 const id = nanoid();
@@ -30,5 +31,10 @@ onUnmounted(async () => {
 <template>
   <div class="container mx-auto p-8">
     <h1 class="text-stone-200 text-2xl">The Home</h1>
+
+    <VChild>
+      <template #header>Header</template>
+      <template #footer>Footer</template>
+    </VChild>
   </div>
 </template>
